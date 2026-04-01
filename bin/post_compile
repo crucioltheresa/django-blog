@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "-----> Running collectstatic"
+python manage.py collectstatic --noinput
