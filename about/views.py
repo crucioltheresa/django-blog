@@ -3,7 +3,7 @@ from .models import About
 
 
 # Create your views here.
-def about(request):
+def about_me(request):
     """Display the about page
 
     **Context**
