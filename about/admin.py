@@ -5,6 +5,11 @@ from .models import About, CollaborateRequest
 
 @admin.register(About)
 class AboutAdmin(SummernoteModelAdmin):
+    """Admin view for :model:`about.About`.
+
+    Provides rich text editing via Summernote for the content field.
+    """
+
     summernote_fields = ("content",)
 
 
@@ -19,6 +24,10 @@ class AboutAdmin(SummernoteModelAdmin):
 
 @admin.register(CollaborateRequest)
 class CollaborateRequestAdmin(admin.ModelAdmin):
+    """Admin view for :model:`about.CollaborateRequest`.
+
+    Displays the message and read status in the admin list view.
+    """
 
     list_display = (
         "message",

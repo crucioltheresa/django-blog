@@ -8,6 +8,15 @@ from .forms import CommentForm
 
 # Create your views here.
 class PostList(generic.ListView):
+    """Display a paginated list of all :model:`blog.Post` entries.
+
+    **Context**
+    ``post_list``
+        A queryset of all :model:`blog.Post` instances.
+    **Template**
+        :template:`blog/index.html`
+    """
+
     queryset = Post.objects.all()
     template_name = "blog/index.html"
     paginate_by = 6
@@ -56,8 +65,17 @@ def post_detail(request, slug):
 
 
 def comment_edit(request, slug, comment_id):
-    """
-    view to edit comments
+    """Edit an individual comment on a :model:`blog.Post`.
+
+    **Context**
+    ``post``
+        An instance of :model:`blog.Post`.
+    ``comment``
+        An instance of :model:`blog.Comment` to be edited.
+    ``comment_form``
+        An instance of :form:`blog.CommentForm` pre-populated with the comment data.
+    **Returns**
+        Redirects to :template:`blog/post_detail.html`.
     """
     if request.method == "POST":
         queryset = Post.objects.filter(status=1)
@@ -77,8 +95,15 @@ def comment_edit(request, slug, comment_id):
 
 
 def comment_delete(request, slug, comment_id):
-    """
-    view to delete comment
+    """Delete an individual comment on a :model:`blog.Post`.
+
+    **Context**
+    ``post``
+        An instance of :model:`blog.Post`.
+    ``comment``
+        An instance of :model:`blog.Comment` to be deleted.
+    **Returns**
+        Redirects to :template:`blog/post_detail.html`.
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)

@@ -6,11 +6,13 @@ from .forms import CollaborateForm
 
 # Create your views here.
 def about_me(request):
-    """Display the about page
+    """Display the about page and handle collaboration requests.
 
     **Context**
     ``about``
-        An instance of :model:`about.About`
+        The most recent instance of :model:`about.About`.
+    ``collaborate_form``
+        An instance of :form:`about.CollaborateForm` for submitting requests.
     **Template**
         :template:`about/about.html`
     """
