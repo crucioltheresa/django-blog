@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import os
-from django.contrib.messages import constants as messages
 import dj_database_url
+from django.contrib.messages import constants as messages
 from pathlib import Path
+import os
+import sys
 
 if os.path.isfile("env.py"):
     import env
@@ -109,7 +110,8 @@ WSGI_APPLICATION = "codestar.wsgi.application"
 # }
 
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
-
+if "test" in sys.argv:
+    DATABASES["default"]["ENGINE"] = "django.db.backends.sqlite3"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

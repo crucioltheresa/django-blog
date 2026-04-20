@@ -106,7 +106,9 @@ def comment_delete(request, slug, comment_id):
         Redirects to :template:`blog/post_detail.html`.
     """
     queryset = Post.objects.filter(status=1)
-    post = get_object_or_404(queryset, slug=slug)
+    post = get_object_or_404(
+        queryset, slug=slug
+    )  # Ensure the post exists and is published
     comment = get_object_or_404(Comment, pk=comment_id)
 
     if comment.author == request.user:
