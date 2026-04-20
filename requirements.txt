@@ -5,11 +5,13 @@ certifi==2026.2.25
 cffi==2.0.0
 charset-normalizer==3.4.7
 click==8.3.1
+cloudinary==1.36.0
 colorama==0.4.6
 crispy-bootstrap5==0.7
 cryptography==46.0.7
 defusedxml==0.7.1
 dj-database-url==0.5.0
+dj3-cloudinary-storage==0.0.6
 Django==6.0.3
 django-allauth==0.57.2
 django-crispy-forms==2.6
@@ -30,8 +32,9 @@ pytokens==0.4.1
 requests==2.33.1
 requests-oauthlib==2.0.0
 setuptools==82.0.1
+six==1.17.0
 sqlparse==0.5.5
 tzdata==2025.3
-urllib3==2.6.3
+urllib3==1.26.20
 webencodings==0.5.1
 whitenoise==6.12.0
